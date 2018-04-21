@@ -38,7 +38,7 @@ RUN pip install matplotlib
 RUN pip install spacy
 RUN python -m spacy download it
 RUN python -m spacy download en
-#TODO conda incasina i pacchetti già installati, da capire in che ordine installare i pacchetti e conda
+# TODO: conda incasina i pacchetti già installati, da capire in che ordine installare i pacchetti e conda
 # sembra che se installo conda e poi uso pip normalmente funziona, ma conda durante l'installazione non migra i pacchetti esistenti
 RUN python3 -m pip install jupyter_nbextensions_configurator
 CMD jupyter notebook --NotebookApp.token='' --allow-root --port 8000 --ip='0.0.0.0' --notebook-dir /jupyter
