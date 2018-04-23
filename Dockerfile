@@ -4,16 +4,12 @@ RUN wget -O /tmp/anaconda.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-L
 RUN bash /tmp/anaconda.sh -b -p /opt/conda
 ENV PATH /opt/conda/bin:$PATH
 RUN conda config --add channels conda-forge
-# RUN conda install scijava-jupyter-kernel
-
 
 RUN conda install -y 'python>=3' nodejs pandas openjdk maven
 RUN conda config --env --add pinned_packages 'openjdk>8.0.121'
 RUN conda install -y -c conda-forge jupyterlab
-RUN (cd beakerx; pip install -e . --verbose)
-RUN beakerx install
+RUN conda install -c conda-forge ipywidgets beakerx
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
-RUN (cd js/lab; jupyter labextension install .)
 
 # Jupyter
 
