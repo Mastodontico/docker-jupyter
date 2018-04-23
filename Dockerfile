@@ -9,8 +9,6 @@ RUN conda install -y 'python>=3' nodejs pandas openjdk maven
 RUN conda config --env --add pinned_packages 'openjdk>8.0.121'
 RUN conda install -y -c conda-forge jupyterlab
 RUN conda install -c conda-forge ipywidgets beakerx
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
-
 # Jupyter
 
 RUN python3 -m pip install jupyter
